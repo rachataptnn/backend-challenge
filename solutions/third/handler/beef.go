@@ -18,7 +18,7 @@ func GetBeefSummary(c *fiber.Ctx) error {
 }
 
 func Refresh(c *fiber.Ctx) error {
-	err := service.ReadBeefFile()
+	err := service.ReadBeefFile("./src/beef.txt")
 	if err != nil {
 		log.Println(err)
 		return err

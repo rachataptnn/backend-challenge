@@ -9,9 +9,8 @@ import (
 )
 
 func main() {
-	service.ReadBeefFile()
+	service.ReadBeefFile("./src/beef.txt")
 
-	// Start Fiber server
 	app := fiber.New()
 
 	beefAPI := app.Group("/beef")

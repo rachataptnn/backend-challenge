@@ -7,8 +7,8 @@ import (
 
 var BeefCounts map[string]int
 
-func ReadBeefFile() error {
-	content, err := os.ReadFile("./src/beef.txt")
+func ReadBeefFile(filePath string) error {
+	content, err := os.ReadFile(filePath)
 	if err != nil {
 		return err
 	}
