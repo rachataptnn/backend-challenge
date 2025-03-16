@@ -476,7 +476,7 @@ func main() {
 		},
 	}
 
-	fmt.Println("Maximum sum:", maximumSumDP(input))
+	fmt.Println("Maximum sum:", maximumSumDP(input[:3]))
 }
 
 func maximumSumDP(triangle [][]int) int {
