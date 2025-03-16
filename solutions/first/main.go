@@ -476,26 +476,18 @@ func main() {
 		},
 	}
 
-	fmt.Println("Maximum sum:", maximumSumDP(input))
-
+	fmt.Println("Maximum sum:", maximumSumDP(input[:4]))
 }
 
 func maximumSumDP(triangle [][]int) int {
-	// Create a copy of the triangle to store intermediate results
-	dp := make([][]int, len(triangle))
-	for i := 0; i < len(triangle); i++ {
-		dp[i] = make([]int, len(triangle[i]))
-		copy(dp[i], triangle[i])
-	}
-
 	// Start from the second-to-last row and work upward
 	for row := len(triangle) - 2; row >= 0; row-- {
 		for col := 0; col <= row; col++ {
 			// Choose the maximum of the two possible paths below
-			dp[row][col] += max(dp[row+1][col], dp[row+1][col+1])
+			triangle[row][col] += max(triangle[row+1][col], triangle[row+1][col+1])
 		}
 	}
 
 	// The top element now contains the maximum path sum
-	return dp[0][0]
+	return triangle[0][0]
 }
